@@ -139,6 +139,10 @@ public class CapacitorHttpUrlConnection implements ICapacitorHttpUrlConnection {
      * @param headers the JSObject values to map to the HttpUrlConnection request headers
      */
     public void setRequestHeaders(JSObject headers) {
+        if (headers == null) {
+            return;
+        }
+
         Iterator<String> keys = headers.keys();
         while (keys.hasNext()) {
             String key = keys.next();
